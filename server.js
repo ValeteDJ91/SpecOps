@@ -21,7 +21,7 @@ const clearMessage = async () => {
     const messages = await channel.messages.fetch();
     for (const message of messages.values()) {
       if (message.author.system) continue
-      if (message.createdTimestamp < Date.now() - channelInfo.timeout) /* 28800000 */ {
+      if (message.createdTimestamp < Date.now() - channelInfo.time) /* 28800000 */ {
         message.delete()
         deleted++
       }
